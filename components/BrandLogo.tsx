@@ -7,6 +7,7 @@ const logoDimensions: Record<BrandLogoVariant, { width: number; height: number }
   primary: { width: 1774, height: 887 },
   primaryLight: { width: 1774, height: 887 },
   mark: { width: 1135, height: 565 },
+  markLight: { width: 1135, height: 565 },
 };
 
 export default function BrandLogo({
@@ -28,7 +29,7 @@ export default function BrandLogo({
     <Image
       className={className}
       src={brandAssets.logo[variant]}
-      alt={variant === 'mark' ? 'A.D. Enterprises monogram' : 'A.D. Enterprises logo'}
+      alt={variant === 'mark' || variant === 'markLight' ? 'A.D. Enterprises monogram' : 'A.D. Enterprises logo'}
       width={width}
       height={Math.round(width * dimensions.height / dimensions.width)}
       sizes={sizes ?? `${width}px`}
