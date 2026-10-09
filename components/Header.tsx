@@ -16,12 +16,14 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [menuMounted, setMenuMounted] = useState(false);
   const [isSmartHidden, setIsSmartHidden] = useState(false);
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const hiddenStateRef = useRef(false);
   const openStateRef = useRef(open);
+  const closeTimerRef = useRef<number | null>(null);
   openStateRef.current = open;
 
   const setHeaderHidden = useCallback((hidden: boolean) => {
@@ -31,12 +33,34 @@ export default function Header() {
   }, []);
 
   const closeMenu = useCallback((restoreFocus = false) => {
-    if (!open) return;
+    if (!openStateRef.current) return;
     if (restoreFocus && navRef.current?.contains(document.activeElement)) {
       toggleRef.current?.focus();
     }
     setOpen(false);
-  }, [open]);
+    if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current);
+    const closeDuration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 230;
+    if (closeDuration === 0) {
+      setMenuMounted(false);
+      closeTimerRef.current = null;
+      return;
+    }
+    closeTimerRef.current = window.setTimeout(() => {
+      setMenuMounted(false);
+      closeTimerRef.current = null;
+    }, closeDuration);
+  }, []);
+
+  const openMenu = useCallback(() => {
+    if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = null;
+    setMenuMounted(true);
+    setOpen(true);
+  }, []);
+
+  useEffect(() => () => {
+    if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current);
+  }, []);
 
   useEffect(() => {
     // The header is shared across App Router navigations. A clicked nav link
@@ -45,8 +69,8 @@ export default function Header() {
     setHeaderHidden(false);
     if (!openStateRef.current) return;
     if (navRef.current?.contains(document.activeElement)) toggleRef.current?.focus();
-    setOpen(false);
-  }, [pathname, setHeaderHidden]);
+    closeMenu(true);
+  }, [pathname, setHeaderHidden, closeMenu]);
 
   useEffect(() => {
     if (!open || !window.matchMedia('(max-width: 980px)').matches) return;
@@ -132,6 +156,9 @@ export default function Header() {
       if (!desktopQuery.matches && navRef.current?.contains(document.activeElement)) {
         toggleRef.current?.focus();
       }
+      if (closeTimerRef.current !== null) window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+      setMenuMounted(false);
       setOpen(false);
       resetDirection();
     };
@@ -182,17 +209,17 @@ export default function Header() {
             aria-expanded={open}
             aria-controls="primary-navigation"
             ref={toggleRef}
-            onClick={() => open ? closeMenu() : setOpen(true)}
+            onClick={() => open ? closeMenu() : openMenu()}
           >
             <span /><span /><span />
           </button>
           <nav
-            className={`main-nav ${open ? 'open' : ''}`}
+            className={`main-nav${open ? ' open' : menuMounted ? ' closing' : ''}`}
             aria-label="Primary navigation"
             id="primary-navigation"
             ref={navRef}
           >
-            {links.map(([label, href]) => {
+            {links.map(([label, href], index) => {
               const active = pathname === href;
               return (
                 <Link
@@ -200,14 +227,15 @@ export default function Header() {
                   href={href}
                   className={active ? 'active' : ''}
                   aria-current={active ? 'page' : undefined}
+                  style={{ animationDelay: `${index * 15}ms` }}
                   onClick={() => closeMenu(true)}
                 >
                   {label}
                 </Link>
               );
             })}
-            <a href="/AD_ENTERPRISES.pdf" target="_blank" rel="noreferrer" onClick={() => closeMenu(true)}>Brochure</a>
-            <Link className="nav-cta" href="/contact" onClick={() => closeMenu(true)}>Request a Quote</Link>
+            <a href="/AD_ENTERPRISES.pdf" target="_blank" rel="noreferrer" style={{ animationDelay: `${links.length * 15}ms` }} onClick={() => closeMenu(true)}>Brochure</a>
+            <Link className="nav-cta" href="/contact" style={{ animationDelay: `${(links.length + 1) * 15}ms` }} onClick={() => closeMenu(true)}>Request a Quote</Link>
           </nav>
         </div>
       </header>
