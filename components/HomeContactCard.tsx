@@ -29,7 +29,7 @@ export default function HomeContactCard() {
           </div>
         </header>
 
-        <a className="button button-primary home-brochure-button" href="/AD_ENTERPRISES.pdf" target="_blank" rel="noreferrer">
+        <a className="button button-primary home-brochure-button" href={company.brochureUrl} target="_blank" rel="noreferrer">
           <FileIcon size={16} />
           <span>Download company brochure</span>
         </a>

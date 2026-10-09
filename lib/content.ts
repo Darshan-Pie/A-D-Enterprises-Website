@@ -24,7 +24,7 @@ const addressLines = [
 
 export const company = {
   name: 'A.D. ENTERPRISES',
-  tagline: 'Manufacturer of LV Switch Boards & LT Bus Duct',
+  tagline: 'Manufacturer of LV Switchboards & LT Bus Ducts',
   since: '2006',
   contacts: contactPeople,
   primaryContactName: contactPeople[0].name,
@@ -45,8 +45,8 @@ export const company = {
     addressRegion: postalAddress.region,
     addressCountry: postalAddress.countryCode,
   },
-  landingPage: 'https://a-d-enterprise-landing-page.vercel.app/',
-  website: 'https://a-d-enterprise-landing-page.vercel.app/',
+  website: 'https://a-d-enterprises-website.vercel.app/',
+  brochureUrl: '/AD_ENTERPRISES.pdf',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=A.D.+ENTERPRISES+Shyam+Industrial+Hub+Bakrol+Bujrang+Ahmedabad',
 };
 

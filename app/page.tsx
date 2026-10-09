@@ -27,7 +27,7 @@ export default function Home() {
         <div className="container hero-content">
           <div className="hero-kicker">ENGINEERED POWER DISTRIBUTION • SINCE 2006</div>
           <h1 className="hero-title">
-            Built for demanding <span>LV power systems.</span>
+            Built for demanding <br /><span>LV power systems</span>
           </h1>
           <p className="hero-description">
             Designing and manufacturing low-voltage switchboards and LT bus ducts tailored to customer requirements, backed by documented testing and precision manufacturing.
@@ -46,7 +46,7 @@ export default function Home() {
               <WhatsAppIcon size={16} />
               <span>WhatsApp the Team</span>
             </a>
-            <a className="button button-ghost" href="/AD_ENTERPRISES.pdf" target="_blank" rel="noreferrer">
+            <a className="button button-ghost" href={company.brochureUrl} target="_blank" rel="noreferrer">
               <FileIcon size={16} />
               <span>View Brochure</span>
             </a>

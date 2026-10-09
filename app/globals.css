@@ -308,6 +308,7 @@ p {
   font-weight: 500;
   letter-spacing: .07em;
   line-height: 1.5;
+  text-transform: uppercase;
   animation-delay: 900ms;
 }
 
@@ -2314,6 +2315,7 @@ html.home-welcome-active .site-header {
 
 .footer-address-snippet {
   font-family: var(--font-body);
+  font-style: normal;
   font-size: 13px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.62);
@@ -2392,6 +2394,7 @@ html.home-welcome-active .site-header {
   font-size: 9px;
   letter-spacing: 0.045em;
   line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .footer-bottom-meta {
@@ -3551,62 +3554,67 @@ a.ci-icon-row:hover {
   }
 
   .manufacturing-process-step {
-    grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr);
-    align-items: center;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: start;
     padding: 18px 0;
     min-height: 0;
   }
 
   .manufacturing-timeline-track {
-    left: 50%;
+    left: 21px;
     top: 36px;
     bottom: 36px;
   }
 
   .manufacturing-process-number {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 1;
     width: 34px;
     height: 34px;
+    margin-top: 0;
   }
 
   .manufacturing-process-step[data-side] h3,
   .manufacturing-process-step[data-side] p {
-    grid-row: 1;
-    align-self: center;
+    grid-row: auto;
+    align-self: start;
     min-width: 0;
     width: 100%;
     max-width: none;
     margin-top: 0;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
   }
 
   .manufacturing-process-step[data-side="left"] p {
-    grid-column: 1;
-    justify-self: end;
-    padding: 0 8px 0 0;
-    text-align: right;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    padding: 8px 0 0;
+    text-align: left;
   }
 
   .manufacturing-process-step[data-side="right"] p {
-    grid-column: 3;
+    grid-column: 2;
+    grid-row: 2;
     justify-self: start;
-    padding: 0 0 0 8px;
+    padding: 8px 0 0;
     text-align: left;
   }
 
   .manufacturing-process-step[data-side="left"] h3 {
-    grid-column: 3;
+    grid-column: 2;
+    grid-row: 1;
     justify-self: start;
-    padding: 0 0 0 8px;
+    padding: 7px 0 0 2px;
     text-align: left;
   }
 
   .manufacturing-process-step[data-side="right"] h3 {
-    grid-column: 1;
-    justify-self: end;
-    padding: 0 8px 0 0;
-    text-align: right;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    padding: 7px 0 0 2px;
+    text-align: left;
   }
 
   .manufacturing-timeline[data-enhanced="true"] .manufacturing-process-step:not(.is-revealed)[data-side="left"] h3,

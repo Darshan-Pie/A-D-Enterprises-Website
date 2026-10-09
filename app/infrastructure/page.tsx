@@ -2,8 +2,9 @@ import Image from 'next/image';
 import ManufacturingTimeline from '@/components/ManufacturingTimeline';
 import PageIntro from '@/components/PageIntro';
 import SectionHeading from '@/components/SectionHeading';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = { title: 'Infrastructure' };
+export const metadata = pageMetadata('Infrastructure', 'Explore the manufacturing facility, processes and production timeline for A.D. Enterprises LV products.', '/infrastructure');
 
 const manufacturingStages = [
   {

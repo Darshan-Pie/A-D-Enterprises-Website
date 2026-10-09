@@ -3,7 +3,8 @@ import Link from 'next/link';
 import SectionHeading from '@/components/SectionHeading';
 import { qualityStats } from '@/lib/content';
 import PageIntro from '@/components/PageIntro';
-export const metadata = { title: 'Quality & Testing' };
+import { pageMetadata } from '@/lib/seo';
+export const metadata = pageMetadata('Quality & Testing', 'Review testing credentials and performance claims stated in the company brochure.', '/quality');
 export default function Quality() {
     return <>
         <PageIntro eyebrow="QUALITY" title="Quality & Testing" description="Testing credentials and performance claims stated in the supplied company brochure." />

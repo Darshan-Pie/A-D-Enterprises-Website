@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { company, whatsappUrl } from '@/lib/content';
+import { company } from '@/lib/content';
 import BrandLogo from '@/components/BrandLogo';
 
 const links = [
@@ -174,19 +174,18 @@ export default function Header() {
     };
   }, [pathname, setHeaderHidden]);
 
-  const message = 'Hello A.D. Enterprises, I would like to discuss an LV switchboard / LT bus duct requirement.';
-
   return (
     <>
       <div className="top-bar">
         <div className="container top-bar-inner">
-          <span className="top-bar-tagline">Manufacturer of LV Switch Boards &amp; LT Bus Duct</span>
+          <span className="top-bar-tagline">{company.tagline}</span>
           <div className="top-bar-contacts">
-            <a href="tel:+919377038505">Call Akash +91 93770 38505</a>
-            <span aria-hidden="true">•</span>
-            <a href="tel:+917878032927">Call Dhiren +91 78780 32927</a>
-            {/* <span aria-hidden="true">•</span> */}
-            {/* <a href={whatsappUrl(company.contacts[0].whatsapp, message)} target="_blank" rel="noreferrer">WhatsApp us</a> */}
+            {company.contacts.map((person, index) => (
+              <Fragment key={person.email}>
+                {index > 0 && <span aria-hidden="true">•</span>}
+                <a href={`tel:${person.phone.replace(/\s/g, '')}`}>Call {person.name} {person.phone}</a>
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>
@@ -234,7 +233,7 @@ export default function Header() {
                 </Link>
               );
             })}
-            <a href="/AD_ENTERPRISES.pdf" target="_blank" rel="noreferrer" style={{ animationDelay: `${links.length * 15}ms` }} onClick={() => closeMenu(true)}>Brochure</a>
+            <a href={company.brochureUrl} target="_blank" rel="noreferrer" style={{ animationDelay: `${links.length * 15}ms` }} onClick={() => closeMenu(true)}>Brochure</a>
             <Link className="nav-cta" href="/contact" style={{ animationDelay: `${(links.length + 1) * 15}ms` }} onClick={() => closeMenu(true)}>Request a Quote</Link>
           </nav>
         </div>

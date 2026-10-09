@@ -5,8 +5,9 @@ import { FileIcon, MapPinIcon } from '@/components/Icons';
 import { company, products } from '@/lib/content';
 import BrandLogo from '@/components/BrandLogo';
 import PageIntro from '@/components/PageIntro';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata = { title: 'Contact' };
+export const metadata = pageMetadata('Contact', 'Contact A.D. Enterprises about a quotation for an LV switchboard or LT bus duct requirement.', '/contact');
 
 export default function Contact({
   searchParams,
@@ -55,7 +56,7 @@ export default function Contact({
 
               <a
                 className="button button-primary cp-btn-icon contact-brochure-button"
-                href="/AD_ENTERPRISES.pdf"
+                href={company.brochureUrl}
                 target="_blank"
                 rel="noreferrer"
               >

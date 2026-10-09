@@ -25,11 +25,7 @@ export default function VisitUs({ className = '', subtle = false }: Props) {
             </div>
             <div className="visit-us-content">
               <address className="visit-us-address">
-                32, 33, 38, 39 Shyam Industrial Hub,<br />
-                Kujad Gatrad Road,<br />
-                Bakrol Bujrang, Daskroi,<br />
-                Ahmedabad - 382433,<br />
-                Gujarat, India
+                {company.addressLines.map((line) => <span key={line}>{line}<br /></span>)}
               </address>
               <div className="visit-us-action">
                 <a

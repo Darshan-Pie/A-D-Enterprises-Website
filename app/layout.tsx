@@ -7,6 +7,7 @@ import MobileContactBar from '@/components/MobileContactBar';
 import ScrollReveal from '@/components/ScrollReveal';
 import PageTransition from '@/components/PageTransition';
 import { company } from '@/lib/content';
+import { siteUrl } from '@/lib/seo';
 
 const interTight = Inter_Tight({
   subsets: ['latin'],
@@ -29,8 +30,6 @@ const manrope = Manrope({
   display: 'swap',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || company.website;
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: 'A.D. Enterprises | LV Switchboards & LT Bus Ducts', template: '%s | A.D. Enterprises' },
@@ -45,8 +44,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'Organization',
     name: company.name,
     url: siteUrl,
-    email: company.email,
-    telephone: company.phone,
+    telephone: company.contacts.map((contact) => contact.phone),
+    email: company.contacts.map((contact) => contact.email),
     address: { '@type': 'PostalAddress', ...company.postalAddress }
   };
   return (

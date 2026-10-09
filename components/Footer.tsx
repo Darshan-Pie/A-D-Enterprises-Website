@@ -17,7 +17,7 @@ export default function Footer() {
               <li><Link href="/quality">Quality &amp; Testing</Link></li>
               <li><Link href="/infrastructure">Infrastructure</Link></li>
               <li><Link href="/contact">Contact</Link></li>
-              <li><a href="/AD_ENTERPRISES.pdf" target="_blank" rel="noreferrer">Download Brochure</a></li>
+              <li><a href={company.brochureUrl} target="_blank" rel="noreferrer">Download Brochure</a></li>
             </ul>
           </div>
 
@@ -58,11 +58,9 @@ export default function Footer() {
             <h3 className="footer-heading">VISIT US</h3>
             <div className="footer-visit-group">
               <span className="footer-location-title">Ahmedabad, Gujarat</span>
-              <p className="footer-address-snippet">
-                32, 33, 38, 39 Shyam Industrial Hub,<br />
-                Bakrol Bujrang, Daskroi,<br />
-                Ahmedabad - 382433
-              </p>
+              <address className="footer-address-snippet">
+                {company.addressLines.map((line) => <span key={line}>{line}<br /></span>)}
+              </address>
               <a
                 href={company.mapsUrl}
                 target="_blank"
@@ -90,7 +88,7 @@ export default function Footer() {
             />
             <div className="footer-brand-copy">
               <strong className="footer-brand-text brand-name-text">A.D. ENTERPRISES</strong>
-              <span className="footer-brand-tagline">MANUFACTURER OF LV SWITCH BOARDS &amp; LT BUS DUCT</span>
+              <span className="footer-brand-tagline">{company.tagline}</span>
             </div>
           </div>
           <div className="footer-bottom-meta">
