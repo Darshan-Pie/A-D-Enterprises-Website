@@ -185,8 +185,8 @@ export default function Header() {
             <a href="tel:+919377038505">Call Akash +91 93770 38505</a>
             <span aria-hidden="true">•</span>
             <a href="tel:+917878032927">Call Dhiren +91 78780 32927</a>
-            <span aria-hidden="true">•</span>
-            <a href={whatsappUrl(company.contacts[0].whatsapp, message)} target="_blank" rel="noreferrer">WhatsApp us</a>
+            {/* <span aria-hidden="true">•</span> */}
+            {/* <a href={whatsappUrl(company.contacts[0].whatsapp, message)} target="_blank" rel="noreferrer">WhatsApp us</a> */}
           </div>
         </div>
       </div>

@@ -250,11 +250,11 @@ export default function Home() {
       {/* ──────────────────────────────────────────────
          7. COMPANY CONTACT CARD
       ────────────────────────────────────────────── */}
-      <section className="section contact-cta-section" id="direct-contact" data-reveal>
+      {/* <section className="section contact-cta-section" id="direct-contact" data-reveal>
         <div className="container">
           <HomeContactCard />
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

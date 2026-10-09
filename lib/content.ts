@@ -66,6 +66,11 @@ export const products = [
   { slug: 'lt-bus-duct', name: 'LT Bus Duct', short: 'Low-voltage bus duct solutions up to 6300 A.', detail: 'Constructed from CRCA sheet steel with configurable phase arrangements, flexible joints and outdoor canopy options for power transmission between transformers and switchboards.', image: '/images/lt-bus-duct.png' }
 ];
 
+export const generalEnquiryProduct = {
+  slug: 'general',
+  name: 'General enquiry / Not sure yet',
+} as const;
+
 export const qualityStats = [
   { value: '70 kA', label: 'Short-circuit withstand test', note: 'IEC 61439 • CPRI Bhopal' },
   { value: '100 kA', label: 'Short-circuit withstand test', note: 'IS 8623 • ERDA Gujarat' },

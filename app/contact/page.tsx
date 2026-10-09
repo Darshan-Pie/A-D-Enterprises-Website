@@ -2,13 +2,23 @@ import Image from 'next/image';
 import ContactForm from '@/components/ContactForm';
 import ContactActions from '@/components/ContactActions';
 import { FileIcon, MapPinIcon } from '@/components/Icons';
-import { company } from '@/lib/content';
+import { company, products } from '@/lib/content';
 import BrandLogo from '@/components/BrandLogo';
 import PageIntro from '@/components/PageIntro';
 
 export const metadata = { title: 'Contact' };
 
-export default function Contact() {
+export default function Contact({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | string[] | undefined>;
+}) {
+  const requestedProduct = searchParams?.product;
+  const initialProduct = typeof requestedProduct === 'string'
+    && products.some((product) => product.slug === requestedProduct)
+    ? requestedProduct
+    : '';
+
   return (
     <>
       <PageIntro eyebrow="CONTACT" title="Request a Quotation" description="Share the application, ratings and project timeline to begin an enquiry." />
@@ -17,11 +27,11 @@ export default function Contact() {
       <section className="section" data-reveal>
         <div className="container contact-layout">
           {/* Form panel */}
-          <div className="contact-panel">
+          <div className="contact-panel" id="quote-form">
             <div className="eyebrow">PROJECT ENQUIRY</div>
             <h2>Request a quotation</h2>
             <p className="contact-panel-subtext">Fill in your specifications or enquiry details below. Our engineering team will follow up promptly.</p>
-            <ContactForm />
+            <ContactForm initialProduct={initialProduct} />
           </div>
 
           {/* Company and contact details */}
