@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Manrope } from 'next/font/google';
+import { Inter_Tight, Manrope, Michroma } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,17 +8,24 @@ import ScrollReveal from '@/components/ScrollReveal';
 import PageTransition from '@/components/PageTransition';
 import { company } from '@/lib/content';
 
-const spaceGrotesk = Space_Grotesk({
+const interTight = Inter_Tight({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-heading',
+  variable: '--font-inter-tight',
+  display: 'swap',
+});
+
+const michroma = Michroma({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-michroma',
   display: 'swap',
 });
 
 const manrope = Manrope({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-body',
+  variable: '--font-manrope',
   display: 'swap',
 });
 
@@ -43,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     address: { '@type': 'PostalAddress', ...company.postalAddress }
   };
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${interTight.variable} ${michroma.variable} ${manrope.variable}`}>
       <body>
         <Header/>
         <ScrollReveal />

@@ -23,7 +23,7 @@ export default function HomeContactCard() {
           <div className="home-contact-mobile-identity">
             <BrandLogo variant="mark" width={60} className="home-contact-mark" sizes="60px" />
             <div>
-              <h2 className="home-contact-brand">{company.name}</h2>
+              <h2 className="home-contact-brand brand-name-text">{company.name}</h2>
               <p>{company.tagline}</p>
             </div>
           </div>

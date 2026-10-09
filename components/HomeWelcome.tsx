@@ -67,7 +67,7 @@ export default function HomeWelcome() {
     <div className={`home-welcome${exiting ? ' is-exiting' : ''}`} role="status" aria-label="Welcome to A.D. Enterprises">
       <div className="home-welcome-content">
         <BrandLogo variant="markLight" width={280} className="home-welcome-mark" sizes="(max-width: 760px) 72vw, 280px" priority />
-        <p className="home-welcome-name">A.D. ENTERPRISES</p>
+        <p className="home-welcome-name brand-name-text">A.D. ENTERPRISES</p>
         <p className="home-welcome-tagline">MANUFACTURER OF LV SWITCH BOARDS &amp; LT BUS DUCT</p>
         <p className="home-welcome-message">ENGINEERED POWER DISTRIBUTION</p>
         <p className="home-welcome-since">SINCE 2006</p>

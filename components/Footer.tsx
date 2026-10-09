@@ -89,7 +89,7 @@ export default function Footer() {
               sizes="64px"
             />
             <div className="footer-brand-copy">
-              <strong className="footer-brand-text">A.D. ENTERPRISES</strong>
+              <strong className="footer-brand-text brand-name-text">A.D. ENTERPRISES</strong>
               <span className="footer-brand-tagline">MANUFACTURER OF LV SWITCH BOARDS &amp; LT BUS DUCT</span>
             </div>
           </div>

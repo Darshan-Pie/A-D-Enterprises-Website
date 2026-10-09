@@ -200,7 +200,7 @@ export default function Header() {
             <span className="brand-mark-frame">
               <BrandLogo variant="mark" width={68} className="brand-mark" sizes="(max-width: 760px) 54px, 68px" priority />
             </span>
-            <span className="brand-copy"><strong>A.D. ENTERPRISES</strong><small>LV SWITCHBOARDS &amp; LT BUS DUCTS</small></span>
+            <span className="brand-copy"><strong className="brand-name-text">A.D. ENTERPRISES</strong><small>LV SWITCHBOARDS &amp; LT BUS DUCTS</small></span>
           </Link>
           <button
             className="menu-toggle"

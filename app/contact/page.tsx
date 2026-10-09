@@ -29,26 +29,26 @@ export default function Contact({
           {/* Form panel */}
           <div className="contact-panel" id="quote-form">
             <div className="eyebrow">PROJECT ENQUIRY</div>
-            <h2>Request a quotation</h2>
+            <h2>Tell us about your project</h2>
             <p className="contact-panel-subtext">Fill in your specifications or enquiry details below. Our engineering team will follow up promptly.</p>
             <ContactForm initialProduct={initialProduct} />
           </div>
 
           {/* Company and contact details */}
           <aside className="contact-info">
-            <div className="contact-image" data-reveal-image>
+            {/* <div className="contact-image" data-reveal-image>
               <Image
                 src="/images/contact-bg.png"
                 alt="A.D. Enterprises manufacturing facility"
                 fill
                 sizes="(max-width:900px) 100vw, 35vw"
               />
-            </div>
+            </div> */}
             <div className="contact-copy contact-info-content">
               <header className="contact-company-identity">
                 <BrandLogo variant="mark" width={64} className="contact-company-mark" sizes="64px" />
                 <div>
-                  <h2>{company.name}</h2>
+                  <h2 className="brand-name-text">{company.name}</h2>
                   <p>{company.tagline}</p>
                 </div>
               </header>

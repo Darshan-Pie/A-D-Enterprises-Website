@@ -47,6 +47,7 @@ export default function Infrastructure() {
   return (
     <>
       <PageIntro
+        className="infrastructure-page-intro"
         eyebrow="INFRASTRUCTURE"
         title="Manufacturing Infrastructure"
         description="Precision machinery, engineering skills and controlled manufacturing processes for LV products."
